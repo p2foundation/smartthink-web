@@ -1,0 +1,155 @@
+/* Mobile-First Responsive Design System for SmartThink */
+
+/* Custom breakpoints for better mobile experience */
+@media (max-width: 320px) {
+  /* Extra small phones */
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .text-responsive-hero {
+    font-size: 1.5rem;
+    line-height: 1.2;
+  }
+}
+
+@media (min-width: 321px) and (max-width: 480px) {
+  /* Small phones */
+  .text-responsive-hero {
+    font-size: 1.75rem;
+    line-height: 1.3;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  /* Large phones and small tablets */
+  .text-responsive-hero {
+    font-size: 2rem;
+    line-height: 1.4;
+  }
+}
+
+/* Touch-friendly interactions */
+@media (hover: none) and (pointer: coarse) {
+  /* Mobile devices - remove hover effects, enhance touch targets */
+  .hover-scale:hover {
+    transform: none;
+  }
+  
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  .mobile-button {
+    padding: 12px 24px;
+    font-size: 16px;
+    min-height: 48px;
+  }
+  
+  /* Reduce animations on mobile for better performance */
+  .floating-element {
+    animation: none;
+  }
+}
+
+/* Optimize for mobile bandwidth */
+@media (max-width: 768px) {
+  .mobile-optimized-bg {
+    background-size: cover;
+    background-position: center;
+    background-attachment: scroll; /* Disable parallax on mobile */
+  }
+  
+  .mobile-hidden {
+    display: none;
+  }
+  
+  .mobile-full-width {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+/* Landscape mobile optimizations */
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero-section {
+    min-height: 100vh;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  
+  .mobile-landscape-spacing {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+}
+
+/* Tablet optimizations */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .tablet-spacing {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Ensure proper viewport meta tag behavior */
+@viewport {
+  width: device-width;
+  initial-scale: 1.0;
+  maximum-scale: 1.0;
+  user-scalable: no;
+}
+
+/* iOS Safari fixes */
+@supports (-webkit-touch-callout: none) {
+  .ios-safe-area {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  
+  /* Prevent zoom on input focus */
+  input, textarea, select {
+    font-size: 16px;
+  }
+}
+
+/* Android Chrome fixes */
+@media screen and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: .001dpcm) {
+  .android-optimized {
+    /* Android-specific optimizations */
+  }
+}
+
+/* Dark mode mobile optimizations */
+@media (prefers-color-scheme: dark) and (max-width: 768px) {
+  .mobile-dark-mode {
+    background-color: #0f172a;
+    color: #f1f5f9;
+  }
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .respectful-animation {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .high-contrast {
+    border: 2px solid currentColor;
+  }
+}
+
+/* Print styles for mobile */
+@media print and (max-width: 768px) {
+  .mobile-print {
+    font-size: 12pt;
+    line-height: 1.4;
+  }
+}
