@@ -3,7 +3,6 @@
   "devCommand": "pnpm dev",
   "installCommand": "pnpm install",
   "framework": "nextjs",
-  "nodeVersion": "22.x",
   "env": {
     "NEXT_PUBLIC_API_URL": "@smartthink_api_url"
   }
