@@ -1,10 +1,29 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowRight, Globe, Smartphone } from 'lucide-react';
+import { useState, useEffect, useCallback } from 'react';
+
+const services = [
+  { text: 'Cybersecurity training', description: 'On-demand courses and live Zoom sessions. Hands-on labs, QR-verified certificates, and region-specific pricing. Built for learners from Accra to Austin.' },
+  { text: 'IT Recruitment', description: 'Connecting top African tech talent with global opportunities. Vetted candidates, fast placements, and region-aware hiring pipelines.' },
+  { text: 'Tech Consulting', description: 'Expert guidance on security architecture, compliance, and digital transformation. Tailored strategies for businesses across Africa and beyond.' },
+  { text: 'Career Development', description: 'Personalized learning paths, mentorship programs, and industry certifications to accelerate your tech career.' },
+];
 
 export function LandingHero() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const nextService = useCallback(() => {
+    setCurrentIndex((prev) => (prev + 1) % services.length);
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(nextService, 3500);
+    return () => clearInterval(interval);
+  }, [nextService]);
+
   return (
     <section className="relative min-h-[90vh] overflow-hidden bg-[#0a0f1a]">
       {/* Gradient mesh background */}
@@ -39,28 +58,63 @@ export function LandingHero() {
             </span>
           </motion.div>
 
-          {/* Headline */}
+          {/* Headline with rotating service text */}
           <motion.h1
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             className="font-display text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl"
           >
-            Cybersecurity training{' '}
+            <div className="relative inline-block w-full">
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={currentIndex}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -30 }}
+                  transition={{ duration: 0.5, ease: 'easeInOut' }}
+                  className="block"
+                >
+                  {services[currentIndex].text}
+                </motion.span>
+              </AnimatePresence>
+            </div>
             <span className="bg-gradient-to-r from-accent-400 via-accent-300 to-primary-400 bg-clip-text text-transparent">
               that moves with you
             </span>
           </motion.h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.25 }}
-            className="mt-6 text-lg text-slate-400 sm:text-xl md:max-w-2xl md:mx-auto"
-          >
-            On-demand courses and live Zoom sessions. Hands-on labs, QR-verified certificates,
-            and region-specific pricing. Built for learners from Accra to Austin.
-          </motion.p>
+          {/* Rotating description */}
+          <div className="mt-6 h-[72px] sm:h-[56px]">
+            <AnimatePresence mode="wait">
+              <motion.p
+                key={currentIndex}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.4, ease: 'easeInOut' }}
+                className="text-lg text-slate-400 sm:text-xl md:max-w-2xl md:mx-auto"
+              >
+                {services[currentIndex].description}
+              </motion.p>
+            </AnimatePresence>
+          </div>
+
+          {/* Service indicator dots */}
+          <div className="mt-4 flex items-center justify-center gap-2">
+            {services.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`h-1.5 rounded-full transition-all duration-300 ${
+                  index === currentIndex
+                    ? 'w-6 bg-accent-400'
+                    : 'w-1.5 bg-slate-600 hover:bg-slate-500'
+                }`}
+                aria-label={`Show ${services[index].text}`}
+              />
+            ))}
+          </div>
 
           {/* CTAs */}
           <motion.div

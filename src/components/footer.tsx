@@ -139,31 +139,6 @@ export function Footer() {
             </div>
           ))}
         </div>
-
-        {/* Regions Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="mt-16 rounded-2xl bg-slate-800 p-8"
-        >
-          <h3 className="text-lg font-semibold text-white mb-6 text-center">
-            🌍 Serving Multiple Regions
-          </h3>
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-            {regions.map((region) => (
-              <div key={region.name} className="text-center">
-                <div className="text-2xl font-bold text-primary-400 mb-1">
-                  {region.currency}
-                </div>
-                <div className="text-sm text-slate-300">
-                  {region.name}
-                </div>
-              </div>
-            ))}
-          </div>
-        </motion.div>
       </div>
 
       {/* Bottom Bar */}
