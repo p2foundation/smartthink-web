@@ -49,10 +49,10 @@ export default function DashboardPage() {
   return (
     <div>
       {/* User Profile Summary Header - Common for all roles */}
-      <div className="mb-8 bg-gradient-to-r from-primary-50 to-accent-50 rounded-xl p-6 border border-primary-100">
-        <div className="flex items-start gap-4">
+      <div className="mb-6 sm:mb-8 bg-gradient-to-r from-primary-50 to-accent-50 rounded-xl p-4 sm:p-6 border border-primary-100">
+        <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 text-center sm:text-left">
           {/* Avatar */}
-          <div className="relative">
+          <div className="relative flex-shrink-0">
             {currentUser.avatarUrl ? (
               <img
                 src={currentUser.avatarUrl}
@@ -81,15 +81,15 @@ export default function DashboardPage() {
 
           {/* User Info */}
           <div className="flex-1">
-            <h1 className="text-3xl font-bold text-slate-900">
+            <h1 className="text-xl sm:text-3xl font-bold font-display text-slate-900">
               Welcome back, {currentUser.firstName}!
             </h1>
-            <p className="mt-1 text-slate-600">
+            <p className="mt-1 text-sm sm:text-base text-slate-600 truncate max-w-full">
               {currentUser.email} • {regionConfig.flag} {regionConfig.name}
             </p>
             
             {/* Status Badges */}
-            <div className="flex items-center gap-3 mt-3">
+            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 sm:gap-3 mt-3">
               <span className={`inline-flex items-center gap-1 px-3 py-1 text-sm font-medium rounded-full border ${
                 currentUser.role === 'ADMIN' ? 'bg-red-100 text-red-700 border-red-200' :
                 currentUser.role === 'INSTRUCTOR' ? 'bg-purple-100 text-purple-700 border-purple-200' :
@@ -117,7 +117,7 @@ export default function DashboardPage() {
                 )}
               </span>
               
-              <span className="inline-flex items-center gap-1 px-3 py-1 text-sm font-medium rounded-full border bg-slate-100 text-slate-700 border-slate-200">
+              <span className="hidden sm:inline-flex items-center gap-1 px-3 py-1 text-sm font-medium rounded-full border bg-slate-100 text-slate-700 border-slate-200">
                 <Clock className="h-3 w-3" />
                 Member since {new Date(currentUser.createdAt).toLocaleDateString()}
               </span>

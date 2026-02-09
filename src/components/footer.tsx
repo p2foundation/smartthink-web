@@ -67,10 +67,10 @@ export function Footer() {
   return (
     <footer className="bg-slate-900 text-white">
       {/* Main Footer Content */}
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-6">
+      <div className="mx-auto max-w-7xl px-5 py-12 sm:py-16 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-2 gap-8 sm:grid-cols-2 lg:grid-cols-6">
           {/* Brand Section */}
-          <div className="lg:col-span-2">
+          <div className="col-span-2 lg:col-span-2">
             <Link href="/" className="inline-flex items-center gap-2 mb-6">
               <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary-600">
                 <span className="text-lg font-bold text-white">S</span>
@@ -149,10 +149,10 @@ export function Footer() {
               © {currentYear} SmartThink LLC. All rights reserved.
             </p>
             
-            <div className="flex items-center gap-6 text-sm text-fg-muted">
+            <div className="flex flex-wrap items-center justify-center md:justify-end gap-4 sm:gap-6 text-xs sm:text-sm text-fg-muted">
               <span>🔒 SOC 2 Compliant</span>
-              <span>🛡️ ISO 27001 Certified</span>
-              <span>📱 Mobile Money Ready</span>
+              <span>🛡️ ISO 27001</span>
+              <span>📱 Mobile Money</span>
             </div>
           </div>
         </div>

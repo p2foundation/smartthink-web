@@ -40,32 +40,31 @@ const steps = [
 
 export function HowItWorksSection() {
   return (
-    <section className="py-20 sm:py-28 bg-slate-50">
+    <section className="py-14 sm:py-28 bg-slate-50">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-16"
         >
           <span className="inline-block rounded-full bg-accent-50 px-4 py-1.5 text-sm font-medium text-accent-600 mb-4">
             How It Works
           </span>
-          <h2 className="font-display text-3xl font-bold text-slate-900 sm:text-4xl lg:text-5xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900 sm:text-4xl lg:text-5xl">
             From sign-up to{' '}
             <span className="bg-gradient-to-r from-accent-500 to-primary-600 bg-clip-text text-transparent">
               success
             </span>
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-500">
+          <p className="mx-auto mt-3 sm:mt-4 max-w-2xl text-base sm:text-lg text-slate-500">
             Whether you're learning, hiring, or consulting — getting started takes minutes.
           </p>
         </motion.div>
 
         <div className="relative">
-
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-6 sm:gap-8 grid-cols-2 lg:grid-cols-4">
             {steps.map((step, index) => (
               <motion.div
                 key={step.number}

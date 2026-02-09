@@ -25,7 +25,7 @@ export function LandingHero() {
   }, [nextService]);
 
   return (
-    <section className="relative min-h-[90vh] overflow-hidden bg-[#0a0f1a]">
+    <section className="relative min-h-[80vh] sm:min-h-[90vh] overflow-hidden bg-[#0a0f1a]">
       {/* Gradient mesh background */}
       <div className="absolute inset-0">
         <div className="absolute -top-40 -right-40 h-[500px] w-[500px] rounded-full bg-primary-600/20 blur-[120px]" />
@@ -35,14 +35,14 @@ export function LandingHero() {
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSA2MCAwIEwgMCAwIDAgNjAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2cpIi8+PC9zdmc+')] opacity-60" />
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-4 pt-24 pb-20 sm:px-6 sm:pt-32 sm:pb-28 lg:px-8">
+      <div className="relative mx-auto max-w-7xl px-5 pt-16 pb-16 sm:px-6 sm:pt-32 sm:pb-28 lg:px-8">
         <div className="mx-auto max-w-4xl text-center">
           {/* Trust pill */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="mb-8 inline-flex flex-wrap items-center justify-center gap-3 text-sm text-hero-muted"
+            className="mb-6 sm:mb-8 inline-flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-xs sm:text-sm text-hero-muted"
           >
             <span className="inline-flex items-center gap-1.5 rounded-full border border-border-secondary bg-bg-secondary/50 px-4 py-1.5 backdrop-blur-sm">
               <span className="h-1.5 w-1.5 rounded-full bg-accent-400" />
@@ -63,7 +63,7 @@ export function LandingHero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-display text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl"
+            className="font-display text-3xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl"
           >
             <div className="relative inline-block w-full">
               <AnimatePresence mode="wait">
@@ -85,7 +85,7 @@ export function LandingHero() {
           </motion.h1>
 
           {/* Rotating description */}
-          <div className="mt-6 h-[72px] sm:h-[56px]">
+          <div className="mt-4 sm:mt-6 min-h-[72px] sm:min-h-[56px]">
             <AnimatePresence mode="wait">
               <motion.p
                 key={currentIndex}
@@ -93,7 +93,7 @@ export function LandingHero() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.4, ease: 'easeInOut' }}
-                className="text-lg text-hero-muted sm:text-xl md:max-w-2xl md:mx-auto"
+                className="text-base text-hero-muted sm:text-xl md:max-w-2xl md:mx-auto leading-relaxed"
               >
                 {services[currentIndex].description}
               </motion.p>
@@ -121,18 +121,18 @@ export function LandingHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
+            className="mt-8 sm:mt-10 flex flex-col items-center justify-center gap-3 sm:gap-4 sm:flex-row px-2 sm:px-0"
           >
             <Link
               href="/register"
-              className="group inline-flex min-h-[52px] items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent-600 to-accent-500 px-8 py-3.5 text-base font-semibold text-white shadow-lg shadow-accent-600/25 transition hover:from-accent-500 hover:to-accent-400 hover:shadow-accent-500/30 sm:text-lg"
+              className="group inline-flex w-full sm:w-auto min-h-[52px] items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent-600 to-accent-500 px-8 py-3.5 text-base font-semibold text-white shadow-lg shadow-accent-600/25 transition hover:from-accent-500 hover:to-accent-400 hover:shadow-accent-500/30 sm:text-lg"
             >
               Start learning free
               <ArrowRight className="h-5 w-5 transition group-hover:translate-x-0.5" />
             </Link>
             <Link
               href="/courses"
-              className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-xl border border-border bg-bg-secondary/50 px-8 py-3.5 text-base font-semibold text-fg backdrop-blur-sm transition hover:border-border-secondary hover:bg-bg-tertiary/50 sm:text-lg"
+              className="inline-flex w-full sm:w-auto min-h-[52px] items-center justify-center gap-2 rounded-xl border border-border bg-bg-secondary/50 px-8 py-3.5 text-base font-semibold text-fg backdrop-blur-sm transition hover:border-border-secondary hover:bg-bg-tertiary/50 sm:text-lg"
             >
               Browse courses
             </Link>
@@ -143,7 +143,7 @@ export function LandingHero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="mt-16 grid grid-cols-2 gap-8 sm:grid-cols-4"
+            className="mt-12 sm:mt-16 grid grid-cols-2 gap-6 sm:gap-8 sm:grid-cols-4"
           >
             {[
               { value: '5,000+', label: 'Active learners' },

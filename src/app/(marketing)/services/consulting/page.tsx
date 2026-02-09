@@ -9,7 +9,7 @@ export default function ConsultingPage() {
   return (
     <div className="min-h-screen bg-slate-50 pb-20">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-[#0a0f1a] py-20 sm:py-32">
+      <section className="relative overflow-hidden bg-[#0a0f1a] py-14 sm:py-32">
         <div className="absolute inset-0">
           <div className="absolute top-0 left-0 h-[600px] w-[600px] rounded-full bg-violet-600/10 blur-[120px]" />
           <div className="absolute bottom-0 right-0 h-[600px] w-[600px] rounded-full bg-blue-600/10 blur-[120px]" />
@@ -26,17 +26,17 @@ export default function ConsultingPage() {
               <span className="inline-block rounded-full bg-violet-500/10 px-4 py-1.5 text-sm font-medium text-violet-400 mb-6 border border-violet-500/20">
                 Enterprise Security Consulting
               </span>
-              <h1 className="font-display text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl mb-6">
+              <h1 className="font-display text-3xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl mb-4 sm:mb-6">
                 Secure Your <span className="text-violet-400">Digital Future</span>
               </h1>
-              <p className="text-lg text-slate-400 mb-8 max-w-xl">
+              <p className="text-base sm:text-lg text-slate-400 mb-6 sm:mb-8 max-w-xl leading-relaxed">
                 Strategic cybersecurity consulting, risk management, and compliance solutions. We help organizations build resilience against modern threats.
               </p>
-              <div className="flex flex-wrap gap-4">
-                <Button size="lg" className="bg-violet-600 hover:bg-violet-700 text-white">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                <Button size="lg" className="bg-violet-600 hover:bg-violet-700 text-white w-full sm:w-auto justify-center">
                   Schedule Consultation
                 </Button>
-                <Button size="lg" variant="outline" className="border-slate-700 text-slate-300 hover:bg-slate-800 hover:text-white" asChild>
+                <Button size="lg" variant="outline" className="border-slate-700 text-slate-300 hover:bg-slate-800 hover:text-white w-full sm:w-auto justify-center" asChild>
                   <Link href="/contact">Contact Sales</Link>
                 </Button>
               </div>

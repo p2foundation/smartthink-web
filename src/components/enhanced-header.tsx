@@ -370,62 +370,70 @@ export function EnhancedHeader() {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Navigation — full-screen overlay */}
         <AnimatePresence>
           {isMobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.2 }}
-              className="lg:hidden border-t border-border"
-            >
-              <div className="py-4 space-y-2">
-                {navigation.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    className={`block px-3 py-2 text-base font-medium rounded-md transition-colors ${
-                      item.current
-                        ? 'text-primary-600 bg-primary-50'
-                        : 'text-fg-secondary hover:text-primary-600 hover:bg-bg-secondary'
-                    }`}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-                
-                {!isAuthenticated && (
-                  <>
-                    <div className="pt-4 border-t border-border">
+            <>
+              {/* Backdrop */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                className="fixed inset-0 top-16 z-30 bg-black/20 backdrop-blur-sm lg:hidden"
+                onClick={() => setIsMobileMenuOpen(false)}
+              />
+              {/* Panel */}
+              <motion.div
+                initial={{ opacity: 0, y: -8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
+                className="absolute inset-x-0 top-16 z-40 border-t border-border bg-bg shadow-xl shadow-black/5 lg:hidden"
+              >
+                <nav className="mx-auto max-w-7xl divide-y divide-border px-4 pb-6 sm:px-6">
+                  {/* Nav links */}
+                  <div className="space-y-1 py-4">
+                    {navigation.map((item) => (
                       <Link
-                        href="/login"
-                        className="block px-3 py-2 text-base font-medium text-fg-secondary hover:text-primary-600 hover:bg-bg-secondary rounded-md transition-colors"
+                        key={item.name}
+                        href={item.href}
+                        className={`flex items-center gap-3 rounded-xl px-4 py-3 text-[15px] font-medium transition-colors ${
+                          item.current
+                            ? 'bg-primary-50 text-primary-600'
+                            : 'text-fg-secondary active:bg-bg-secondary'
+                        }`}
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
-                        Sign In
+                        {item.name}
                       </Link>
-                      <Link
-                        href="/register"
-                        className="block px-3 py-2 text-base font-medium text-primary-600 bg-primary-50 hover:bg-primary-100 rounded-md transition-colors mt-1"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                      >
-                        Get Started
-                      </Link>
+                    ))}
+                  </div>
+
+                  {/* Auth actions */}
+                  {!isAuthenticated && (
+                    <div className="flex flex-col gap-3 py-4">
+                      <Button variant="outline" size="lg" className="w-full justify-center" asChild>
+                        <Link href="/login" onClick={() => setIsMobileMenuOpen(false)}>
+                          Sign In
+                        </Link>
+                      </Button>
+                      <Button size="lg" className="w-full justify-center" asChild>
+                        <Link href="/register" onClick={() => setIsMobileMenuOpen(false)}>
+                          Get Started
+                        </Link>
+                      </Button>
                     </div>
-                  </>
-                )}
-                
-                {/* Theme Toggle in Mobile Menu */}
-                <div className="pt-4 border-t border-border">
-                  <div className="px-3 py-2">
-                    <p className="text-xs font-medium text-fg-muted uppercase tracking-wider mb-2">Theme</p>
+                  )}
+
+                  {/* Theme toggle */}
+                  <div className="flex items-center justify-between py-4">
+                    <span className="text-sm font-medium text-fg-muted">Appearance</span>
                     <ThemeToggle />
                   </div>
-                </div>
-              </div>
-            </motion.div>
+                </nav>
+              </motion.div>
+            </>
           )}
         </AnimatePresence>
       </div>

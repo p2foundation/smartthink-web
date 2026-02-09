@@ -73,14 +73,6 @@ export function Header() {
                   </Link>
                 ))}
               </div>
-              
-              {/* Theme Toggle in Mobile Menu */}
-              <div className="border-t border-border pt-4 mt-4">
-                <div className="px-3 py-2">
-                  <p className="text-xs font-medium text-fg-muted uppercase tracking-wider mb-2">Theme</p>
-                  <ThemeToggle />
-                </div>
-              </div>
             </div>
           </nav>
 
@@ -144,101 +136,105 @@ export function Header() {
         </div>
       </div>
 
-      {/* Mobile Navigation */}
+      {/* Mobile Navigation — premium overlay */}
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.2 }}
-            className="border-t border-border bg-bg lg:hidden"
-          >
-            <div className="px-4 py-4 space-y-2">
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="block rounded-lg px-3 py-2 text-base font-medium text-fg-secondary hover:bg-bg-secondary hover:text-fg"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              ))}
-              
-              <div className="border-t border-border pt-4 mt-4">
-                <p className="px-3 text-xs font-semibold text-slate-400 uppercase tracking-wide">Resources</p>
-                {resources.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    className="block px-3 py-2 text-base font-medium text-fg-secondary hover:bg-bg-secondary hover:text-fg rounded-md transition-colors"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-              </div>
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 top-16 z-30 bg-black/20 backdrop-blur-sm lg:hidden"
+              onClick={() => setIsMobileMenuOpen(false)}
+            />
+            <motion.div
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
+              className="absolute inset-x-0 top-16 z-40 border-t border-border bg-bg shadow-xl shadow-black/5 lg:hidden"
+            >
+              <nav className="mx-auto max-w-7xl divide-y divide-border px-4 pb-6 sm:px-6">
+                {/* Nav links */}
+                <div className="space-y-1 py-4">
+                  {navigation.map((item) => (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      className="flex items-center gap-3 rounded-xl px-4 py-3 text-[15px] font-medium text-fg-secondary active:bg-bg-secondary transition-colors"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
 
-              {/* Mobile Auth */}
-              <div className="border-t border-border pt-4 mt-4 space-y-2">
-                {isAuthenticated ? (
-                  <>
+                {/* Resources */}
+                <div className="py-4">
+                  <p className="px-4 mb-2 text-xs font-semibold text-fg-muted uppercase tracking-wide">Resources</p>
+                  {resources.map((item) => (
                     <Link
-                      href="/dashboard"
-                      className="block w-full text-center"
+                      key={item.name}
+                      href={item.href}
+                      className="flex items-center gap-3 rounded-xl px-4 py-3 text-[15px] font-medium text-fg-secondary active:bg-bg-secondary transition-colors"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
-                      <Button variant="ghost" size="sm" className="w-full">
-                        Dashboard
-                      </Button>
+                      {item.name}
                     </Link>
-                    <div className="flex items-center justify-center gap-2 px-3">
-                      <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary-100 text-sm font-semibold text-primary-700">
-                        {user?.firstName?.[0]}
-                        {user?.lastName?.[0]}
+                  ))}
+                </div>
+
+                {/* Auth actions */}
+                <div className="flex flex-col gap-3 py-4">
+                  {isAuthenticated ? (
+                    <>
+                      <div className="flex items-center gap-3 px-4 py-2">
+                        <div className="flex h-9 w-9 items-center justify-center rounded-full bg-primary-100 text-sm font-semibold text-primary-700">
+                          {user?.firstName?.[0]}{user?.lastName?.[0]}
+                        </div>
+                        <span className="text-sm font-medium text-fg-secondary">
+                          {user?.firstName} {user?.lastName}
+                        </span>
                       </div>
-                      <span className="text-sm text-slate-600">
-                        {user?.firstName} {user?.lastName}
-                      </span>
-                    </div>
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      className="w-full"
-                      onClick={() => {
-                        logout();
-                        setIsMobileMenuOpen(false);
-                      }}
-                    >
-                      Logout
-                    </Button>
-                  </>
-                ) : (
-                  <>
-                    <Link
-                      href="/login"
-                      className="block w-full text-center"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      <Button variant="ghost" size="sm" className="w-full">
-                        Log in
+                      <Button variant="outline" size="lg" className="w-full justify-center" asChild>
+                        <Link href="/dashboard" onClick={() => setIsMobileMenuOpen(false)}>
+                          Dashboard
+                        </Link>
                       </Button>
-                    </Link>
-                    <Link
-                      href="/register"
-                      className="block w-full text-center"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      <Button size="sm" className="w-full">
-                        Get Started
+                      <Button
+                        variant="ghost"
+                        size="lg"
+                        className="w-full justify-center text-red-600"
+                        onClick={() => { logout(); setIsMobileMenuOpen(false); }}
+                      >
+                        Logout
                       </Button>
-                    </Link>
-                  </>
-                )}
-              </div>
-            </div>
-          </motion.div>
+                    </>
+                  ) : (
+                    <>
+                      <Button variant="outline" size="lg" className="w-full justify-center" asChild>
+                        <Link href="/login" onClick={() => setIsMobileMenuOpen(false)}>
+                          Log in
+                        </Link>
+                      </Button>
+                      <Button size="lg" className="w-full justify-center" asChild>
+                        <Link href="/register" onClick={() => setIsMobileMenuOpen(false)}>
+                          Get Started
+                        </Link>
+                      </Button>
+                    </>
+                  )}
+                </div>
+
+                {/* Theme toggle */}
+                <div className="flex items-center justify-between py-4">
+                  <span className="text-sm font-medium text-fg-muted">Appearance</span>
+                  <ThemeToggle />
+                </div>
+              </nav>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </header>

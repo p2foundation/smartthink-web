@@ -60,7 +60,7 @@ const platformFeatures = [
 
 export function FeaturesSection() {
   return (
-    <section className="py-20 sm:py-28 bg-white">
+    <section className="py-14 sm:py-28 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -72,13 +72,13 @@ export function FeaturesSection() {
           <span className="inline-block rounded-full bg-primary-50 px-4 py-1.5 text-sm font-medium text-primary-600 mb-4">
             Our Services
           </span>
-          <h2 className="font-display text-3xl font-bold text-slate-900 sm:text-4xl lg:text-5xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900 sm:text-4xl lg:text-5xl">
             Everything you need to{' '}
             <span className="bg-gradient-to-r from-primary-600 to-accent-500 bg-clip-text text-transparent">
               level up
             </span>
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-500">
+          <p className="mx-auto mt-3 sm:mt-4 max-w-2xl text-base sm:text-lg text-slate-500">
             Four pillars of excellence — training, consulting, recruitment, and career development — tailored for your region.
           </p>
         </motion.div>
@@ -89,7 +89,7 @@ export function FeaturesSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
           viewport={{ once: true }}
-          className="flex flex-wrap items-center justify-center gap-3 mb-14"
+          className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-8 sm:mb-14"
         >
           {platformFeatures.map((f) => (
             <span
@@ -115,7 +115,7 @@ export function FeaturesSection() {
             >
               <Link
                 href={service.href}
-                className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-slate-300 hover:shadow-xl"
+                className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white p-5 sm:p-7 transition-all duration-300 hover:-translate-y-1 hover:border-slate-300 hover:shadow-xl"
               >
                 {/* Gradient accent bar */}
                 <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${service.color} opacity-0 transition-opacity group-hover:opacity-100`} />

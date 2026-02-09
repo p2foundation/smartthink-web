@@ -18,7 +18,7 @@ interface TestimonialProps {
 
 function TestimonialCard({ name, role, company, country, content, rating, avatar, service }: TestimonialProps) {
   return (
-    <div className="flex w-[340px] flex-shrink-0 flex-col rounded-2xl bg-white p-6 shadow-sm border border-slate-100 hover:shadow-lg hover:border-slate-200 transition-all duration-300 snap-start">
+    <div className="flex w-[300px] sm:w-[340px] flex-shrink-0 flex-col rounded-2xl bg-white p-5 sm:p-6 shadow-sm border border-slate-100 hover:shadow-lg hover:border-slate-200 transition-all duration-300 snap-start">
       {/* Service tag */}
       <span className="mb-4 inline-flex w-fit items-center rounded-full bg-primary-50 px-3 py-1 text-xs font-medium text-primary-600">
         {service}
@@ -129,7 +129,7 @@ export function TestimonialsSection() {
   ];
 
   return (
-    <section className="py-20 sm:py-28 bg-white">
+    <section className="py-14 sm:py-28 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -137,13 +137,13 @@ export function TestimonialsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="mb-12 flex items-end justify-between"
+          className="mb-8 sm:mb-12 flex flex-col sm:flex-row sm:items-end gap-4 sm:justify-between"
         >
           <div>
             <span className="inline-block rounded-full bg-gold-400/10 px-4 py-1.5 text-sm font-medium text-gold-600 mb-4">
               Testimonials
             </span>
-            <h2 className="font-display text-3xl font-bold text-slate-900 sm:text-4xl lg:text-5xl">
+            <h2 className="font-display text-2xl font-bold text-slate-900 sm:text-4xl lg:text-5xl">
               Trusted by professionals{' '}
               <span className="bg-gradient-to-r from-primary-600 to-accent-500 bg-clip-text text-transparent">
                 worldwide

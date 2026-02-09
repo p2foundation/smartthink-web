@@ -69,7 +69,7 @@ export default function CoursesPage() {
   return (
     <div className="min-h-screen bg-slate-50 pb-20">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-[#0a0f1a] py-20 sm:py-32">
+      <section className="relative overflow-hidden bg-[#0a0f1a] py-14 sm:py-32">
         <div className="absolute inset-0">
           <div className="absolute -top-40 -right-40 h-[500px] w-[500px] rounded-full bg-primary-600/20 blur-[120px]" />
           <div className="absolute top-1/2 -left-40 h-[400px] w-[400px] rounded-full bg-accent-500/10 blur-[100px]" />
@@ -85,13 +85,13 @@ export default function CoursesPage() {
             <span className="inline-block rounded-full bg-primary-500/10 px-4 py-1.5 text-sm font-medium text-primary-400 mb-6 border border-primary-500/20">
               Course Catalog
             </span>
-            <h1 className="font-display text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl mb-6">
+            <h1 className="font-display text-3xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl mb-4 sm:mb-6">
               Master Cybersecurity <br />
               <span className="bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">
                 One Skill at a Time
               </span>
             </h1>
-            <p className="mx-auto max-w-2xl text-lg text-slate-400 mb-10">
+            <p className="mx-auto max-w-2xl text-base sm:text-lg text-slate-400 mb-8 sm:mb-10 leading-relaxed">
               Hands-on training, industry-recognized certifications, and career-focused learning paths. 
               Built for professionals across Africa, US, and Europe.
             </p>

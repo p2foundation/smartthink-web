@@ -9,7 +9,7 @@ export default function TrainingPage() {
   return (
     <div className="min-h-screen bg-slate-50 pb-20">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-[#0a0f1a] py-20 sm:py-32">
+      <section className="relative overflow-hidden bg-[#0a0f1a] py-14 sm:py-32">
         <div className="absolute inset-0">
           <div className="absolute top-0 right-0 h-[600px] w-[600px] rounded-full bg-blue-600/10 blur-[120px]" />
           <div className="absolute bottom-0 left-0 h-[600px] w-[600px] rounded-full bg-primary-600/10 blur-[120px]" />
@@ -26,17 +26,17 @@ export default function TrainingPage() {
               <span className="inline-block rounded-full bg-blue-500/10 px-4 py-1.5 text-sm font-medium text-blue-400 mb-6 border border-blue-500/20">
                 Corporate Training & LMS
               </span>
-              <h1 className="font-display text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl mb-6">
+              <h1 className="font-display text-3xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl mb-4 sm:mb-6">
                 Build a <span className="text-blue-400">Security-First</span> Culture
               </h1>
-              <p className="text-lg text-slate-400 mb-8 max-w-xl">
+              <p className="text-base sm:text-lg text-slate-400 mb-6 sm:mb-8 max-w-xl leading-relaxed">
                 Comprehensive training solutions combining on-demand courses, live instructor-led sessions, and hands-on labs. Tailored for enterprise teams.
               </p>
-              <div className="flex flex-wrap gap-4">
-                <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white w-full sm:w-auto justify-center">
                   Get Enterprise Quote
                 </Button>
-                <Button size="lg" variant="outline" className="border-slate-700 text-slate-300 hover:bg-slate-800 hover:text-white" asChild>
+                <Button size="lg" variant="outline" className="border-slate-700 text-slate-300 hover:bg-slate-800 hover:text-white w-full sm:w-auto justify-center" asChild>
                   <Link href="/courses">View Course Catalog</Link>
                 </Button>
               </div>
