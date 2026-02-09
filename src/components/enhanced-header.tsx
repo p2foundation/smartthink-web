@@ -24,6 +24,7 @@ import {
   Moon
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { ThemeToggle } from '@/components/theme-toggle';
 import { useAuthStore } from '@/stores/auth-store';
 import { useLmsStore } from '@/stores/lms-store';
 import { useLabsStore } from '@/stores/labs-store';
@@ -309,7 +310,7 @@ export function EnhancedHeader() {
       ];
 
   return (
-    <header className="bg-white border-b border-slate-200 sticky top-0 z-40">
+    <header className="bg-bg border-b border-border sticky top-0 z-40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -317,7 +318,7 @@ export function EnhancedHeader() {
             <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary-600 group-hover:bg-primary-700 transition-colors">
               <Shield className="h-5 w-5 text-white" />
             </div>
-            <span className="text-xl font-bold text-slate-900">
+            <span className="text-xl font-bold font-display text-fg">
               Smart<span className="text-primary-600">Think</span>
             </span>
           </Link>
@@ -341,6 +342,9 @@ export function EnhancedHeader() {
 
           {/* Right Side */}
           <div className="flex items-center gap-4">
+            <div className="hidden sm:block">
+              <ThemeToggle />
+            </div>
             {isAuthenticated && user ? (
               <UserHeader user={user} />
             ) : (
@@ -374,7 +378,7 @@ export function EnhancedHeader() {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.2 }}
-              className="lg:hidden border-t border-slate-200"
+              className="lg:hidden border-t border-border"
             >
               <div className="py-4 space-y-2">
                 {navigation.map((item) => (
@@ -384,7 +388,7 @@ export function EnhancedHeader() {
                     className={`block px-3 py-2 text-base font-medium rounded-md transition-colors ${
                       item.current
                         ? 'text-primary-600 bg-primary-50'
-                        : 'text-slate-600 hover:text-primary-600 hover:bg-slate-50'
+                        : 'text-fg-secondary hover:text-primary-600 hover:bg-bg-secondary'
                     }`}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
@@ -394,10 +398,10 @@ export function EnhancedHeader() {
                 
                 {!isAuthenticated && (
                   <>
-                    <div className="pt-4 border-t border-slate-200">
+                    <div className="pt-4 border-t border-border">
                       <Link
                         href="/login"
-                        className="block px-3 py-2 text-base font-medium text-slate-600 hover:text-primary-600 hover:bg-slate-50 rounded-md transition-colors"
+                        className="block px-3 py-2 text-base font-medium text-fg-secondary hover:text-primary-600 hover:bg-bg-secondary rounded-md transition-colors"
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
                         Sign In
@@ -412,6 +416,14 @@ export function EnhancedHeader() {
                     </div>
                   </>
                 )}
+                
+                {/* Theme Toggle in Mobile Menu */}
+                <div className="pt-4 border-t border-border">
+                  <div className="px-3 py-2">
+                    <p className="text-xs font-medium text-fg-muted uppercase tracking-wider mb-2">Theme</p>
+                    <ThemeToggle />
+                  </div>
+                </div>
               </div>
             </motion.div>
           )}

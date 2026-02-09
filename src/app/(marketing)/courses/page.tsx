@@ -239,7 +239,7 @@ export default function CoursesPage() {
         ) : filtered.length === 0 ? (
           <div className="rounded-2xl border border-dashed border-slate-300 bg-white p-12 text-center">
             <div className="mx-auto max-w-md">
-              <h3 className="text-lg font-semibold text-slate-900">No courses found</h3>
+              <h3 className="text-lg font-semibold font-display text-slate-900">No courses found</h3>
               <p className="mt-2 text-slate-600">
                 We couldn't find any courses matching your search. Try adjusting your filters or search terms.
               </p>

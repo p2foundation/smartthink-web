@@ -80,7 +80,7 @@ export function Footer() {
               </span>
             </Link>
             
-            <p className="text-slate-300 mb-6 max-w-sm">
+            <p className="text-footer-fg mb-6 max-w-sm">
               World-class cybersecurity training, consulting, and recruitment. 
               Built for Africa, designed for the world.
             </p>
@@ -91,7 +91,7 @@ export function Footer() {
                 <motion.a
                   key={social.label}
                   href={social.href}
-                  className="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-800 text-slate-400 hover:bg-primary-600 hover:text-white transition-colors"
+                  className="flex h-10 w-10 items-center justify-center rounded-lg bg-footer-bg text-fg-muted hover:bg-primary-600 hover:text-white transition-colors"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                   aria-label={social.label}
@@ -102,7 +102,7 @@ export function Footer() {
             </div>
 
             {/* Contact Info */}
-            <div className="space-y-2 text-sm text-slate-400">
+            <div className="space-y-2 text-sm text-fg-muted">
               <div className="flex items-center gap-2">
                 <Mail className="h-4 w-4" />
                 <span>hello@smartthink.com</span>
@@ -129,7 +129,7 @@ export function Footer() {
                   <li key={link.name}>
                     <Link
                       href={link.href}
-                      className="text-sm text-slate-300 hover:text-primary-400 transition-colors"
+                      className="text-sm text-footer-fg hover:text-primary-400 transition-colors"
                     >
                       {link.name}
                     </Link>
@@ -142,14 +142,14 @@ export function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-slate-800">
+      <div className="border-t border-footer-border">
         <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-slate-400">
+            <p className="text-sm text-fg-muted">
               © {currentYear} SmartThink LLC. All rights reserved.
             </p>
             
-            <div className="flex items-center gap-6 text-sm text-slate-400">
+            <div className="flex items-center gap-6 text-sm text-fg-muted">
               <span>🔒 SOC 2 Compliant</span>
               <span>🛡️ ISO 27001 Certified</span>
               <span>📱 Mobile Money Ready</span>

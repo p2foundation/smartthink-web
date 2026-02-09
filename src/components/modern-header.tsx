@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { RegionSelector } from '@/components/region-selector';
+import { ThemeToggle } from '@/components/theme-toggle';
 import { useAuthStore } from '@/stores/auth-store';
 
 export function Header() {
@@ -28,20 +29,16 @@ export function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-slate-100 bg-white/80 backdrop-blur-lg">
+    <header className="sticky top-0 z-50 w-full border-b border-border bg-bg/80 backdrop-blur-lg">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <motion.div
-              className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary-600 group-hover:bg-primary-700 transition-colors"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <span className="text-lg font-bold text-white">S</span>
-            </motion.div>
-            <span className="text-xl font-bold text-slate-900">
-              Smart<span className="text-primary-600 group-hover:text-primary-700 transition-colors">Think</span>
+          <Link href="/" className="flex items-center gap-2">
+            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary-600">
+              <span className="text-lg font-bold text-white font-display">S</span>
+            </div>
+            <span className="text-xl font-bold font-display text-fg">
+              Smart<span className="text-primary-600">Think</span>
             </span>
           </Link>
 
@@ -70,17 +67,28 @@ export function Header() {
                   <Link
                     key={item.name}
                     href={item.href}
-                    className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-slate-900"
+                    className="block px-4 py-2 text-sm text-fg-secondary hover:bg-bg-secondary hover:text-fg"
                   >
                     {item.name}
                   </Link>
                 ))}
+              </div>
+              
+              {/* Theme Toggle in Mobile Menu */}
+              <div className="border-t border-border pt-4 mt-4">
+                <div className="px-3 py-2">
+                  <p className="text-xs font-medium text-fg-muted uppercase tracking-wider mb-2">Theme</p>
+                  <ThemeToggle />
+                </div>
               </div>
             </div>
           </nav>
 
           {/* Right side */}
           <div className="flex items-center gap-3">
+            <div className="hidden sm:block">
+              <ThemeToggle />
+            </div>
             <RegionSelector />
 
             {/* Desktop Auth */}
@@ -144,27 +152,27 @@ export function Header() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="border-t border-slate-100 bg-white lg:hidden"
+            className="border-t border-border bg-bg lg:hidden"
           >
             <div className="px-4 py-4 space-y-2">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="block rounded-lg px-3 py-2 text-base font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900"
+                  className="block rounded-lg px-3 py-2 text-base font-medium text-fg-secondary hover:bg-bg-secondary hover:text-fg"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.name}
                 </Link>
               ))}
               
-              <div className="border-t border-slate-100 pt-4 mt-4">
+              <div className="border-t border-border pt-4 mt-4">
                 <p className="px-3 text-xs font-semibold text-slate-400 uppercase tracking-wide">Resources</p>
                 {resources.map((item) => (
                   <Link
                     key={item.name}
                     href={item.href}
-                    className="block rounded-lg px-3 py-2 text-base font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900"
+                    className="block px-3 py-2 text-base font-medium text-fg-secondary hover:bg-bg-secondary hover:text-fg rounded-md transition-colors"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {item.name}
@@ -173,7 +181,7 @@ export function Header() {
               </div>
 
               {/* Mobile Auth */}
-              <div className="border-t border-slate-100 pt-4 mt-4 space-y-2">
+              <div className="border-t border-border pt-4 mt-4 space-y-2">
                 {isAuthenticated ? (
                   <>
                     <Link

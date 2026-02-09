@@ -64,8 +64,6 @@ export function HowItWorksSection() {
         </motion.div>
 
         <div className="relative">
-          {/* Connecting line (desktop) */}
-          <div className="absolute top-24 left-[calc(12.5%+24px)] right-[calc(12.5%+24px)] hidden h-0.5 bg-gradient-to-r from-primary-200 via-accent-200 to-violet-200 lg:block" />
 
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {steps.map((step, index) => (

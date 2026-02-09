@@ -91,9 +91,9 @@ export function StudentDashboard({ user }: StudentDashboardProps) {
         {/* Main Content - Course Progress */}
         <div className="lg:col-span-2 space-y-8">
           {/* Continue Learning */}
-          <section className="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
+          <section className="bg-card rounded-xl border border-border p-6 shadow-sm">
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-lg font-bold text-slate-900 flex items-center gap-2">
+              <h2 className="text-lg font-bold font-display text-fg flex items-center gap-2">
                 <PlayCircle className="h-5 w-5 text-primary-600" />
                 Continue Learning
               </h2>
@@ -105,16 +105,16 @@ export function StudentDashboard({ user }: StudentDashboardProps) {
             {coursesLoading ? (
               <div className="space-y-4">
                 {Array.from({ length: 3 }).map((_, idx) => (
-                  <div key={idx} className="h-24 animate-pulse rounded-xl bg-slate-50 border border-slate-100" />
+                  <div key={idx} className="h-24 animate-pulse rounded-xl bg-bg-secondary border border-border-secondary" />
                 ))}
               </div>
             ) : enrolledCourses.length === 0 ? (
-              <div className="rounded-xl border border-dashed border-slate-200 p-8 text-center bg-slate-50">
+              <div className="rounded-xl border border-dashed border-border p-8 text-center bg-bg-secondary">
                 <div className="mx-auto w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center mb-3">
-                  <BookOpen className="h-6 w-6 text-slate-400" />
+                  <BookOpen className="h-6 w-6 text-fg-muted" />
                 </div>
-                <h3 className="text-sm font-semibold text-slate-900">No active courses</h3>
-                <p className="mt-1 text-sm text-slate-500 max-w-xs mx-auto mb-4">
+                <h3 className="text-sm font-semibold text-fg">No active courses</h3>
+                <p className="mt-1 text-sm text-fg-secondary max-w-xs mx-auto mb-4">
                   Explore our catalog and start your learning journey today.
                 </p>
                 <Button asChild>
@@ -124,17 +124,17 @@ export function StudentDashboard({ user }: StudentDashboardProps) {
             ) : (
               <div className="space-y-4">
                 {enrolledCourses.slice(0, 3).map(({ course, progress, currentLessonId }) => (
-                  <div key={course.id} className="group rounded-xl border border-slate-200 p-4 transition-all hover:border-primary-200 hover:shadow-sm">
+                  <div key={course.id} className="group rounded-xl border border-border bg-card p-4 transition-all hover:border-primary-200 hover:shadow-sm">
                     <div className="flex items-start justify-between gap-4">
                       <div className="min-w-0 flex-1">
                         <div className="flex items-center gap-2 mb-1">
-                          <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-slate-100 text-slate-600">
+                          <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-bg-secondary text-fg-secondary">
                             {course.level}
                           </span>
-                          <span className="text-xs text-slate-400">•</span>
-                          <span className="text-xs text-slate-500">{course.tags?.[0] ?? 'General'}</span>
+                          <span className="text-xs text-fg-muted">•</span>
+                          <span className="text-xs text-fg-muted">{course.tags?.[0] ?? 'General'}</span>
                         </div>
-                        <h3 className="font-semibold text-slate-900 truncate group-hover:text-primary-700 transition-colors">
+                        <h3 className="font-semibold text-fg truncate group-hover:text-primary-700 transition-colors">
                           {course.title}
                         </h3>
                         <div className="mt-3 flex items-center gap-3">
@@ -144,7 +144,7 @@ export function StudentDashboard({ user }: StudentDashboardProps) {
                               style={{ width: `${progress}%` }} 
                             />
                           </div>
-                          <span className="text-xs font-medium text-slate-700 min-w-[3ch]">
+                          <span className="text-xs font-medium text-fg-secondary min-w-[3ch]">
                             {progress}%
                           </span>
                         </div>
@@ -170,25 +170,25 @@ export function StudentDashboard({ user }: StudentDashboardProps) {
 
           {/* Recommended Path */}
           <section className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-xl p-6 text-white shadow-lg overflow-hidden relative">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+            <div className="absolute top-0 right-0 w-64 h-64 bg-primary-500/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
             
             <div className="relative z-10">
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/10 text-white/90 text-xs font-medium mb-3 border border-white/10">
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-primary-500/10 text-primary-700 text-xs font-medium mb-3 border border-primary-200">
                     <Award className="h-3 w-3" />
                     Recommended Path
                   </div>
-                  <h3 className="text-xl font-bold mb-2">Cybersecurity Analyst Path</h3>
-                  <p className="text-slate-300 text-sm max-w-lg mb-6">
+                  <h3 className="text-xl font-bold font-display mb-2">Cybersecurity Analyst Path</h3>
+                  <p className="text-fg-secondary text-sm max-w-lg mb-6">
                     Master the essential skills to become a SOC Analyst. Includes 5 courses, 12 labs, and a final capstone project.
                   </p>
-                  <Button variant="secondary" className="bg-white text-slate-900 hover:bg-slate-100 border-none">
+                  <Button variant="secondary">
                     View Learning Path
                   </Button>
                 </div>
                 <div className="hidden sm:block">
-                  <div className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center border border-white/20">
+                  <div className="w-16 h-16 rounded-full bg-primary-500/10 flex items-center justify-center border border-primary-200">
                     <span className="text-2xl font-bold">0%</span>
                   </div>
                 </div>
@@ -200,14 +200,14 @@ export function StudentDashboard({ user }: StudentDashboardProps) {
         {/* Sidebar - Account & Schedule */}
         <div className="space-y-6">
           {/* Account Status */}
-          <div className="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
-            <h2 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
+          <div className="bg-card rounded-xl border border-border p-6 shadow-sm">
+            <h2 className="text-lg font-bold text-fg mb-4 flex items-center gap-2">
               <CheckCircle className="h-5 w-5 text-primary-600" />
               Account Status
             </h2>
             <div className="space-y-4">
               <div className="flex items-center justify-between p-3 rounded-lg bg-slate-50 border border-slate-100">
-                <span className="text-sm font-medium text-slate-700">Email</span>
+                <span className="text-sm font-medium text-fg-secondary">Email</span>
                 <span className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 text-xs font-medium rounded-full ${
                   user.emailVerifiedAt 
                     ? 'bg-green-100 text-green-700 border border-green-200' 
@@ -226,7 +226,7 @@ export function StudentDashboard({ user }: StudentDashboardProps) {
               </div>
               
               <div className="flex items-center justify-between p-3 rounded-lg bg-slate-50 border border-slate-100">
-                <span className="text-sm font-medium text-slate-700">KYC Status</span>
+                <span className="text-sm font-medium text-fg-secondary">KYC Status</span>
                 <span className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 text-xs font-medium rounded-full ${
                   user.isVerified 
                     ? 'bg-green-100 text-green-700 border border-green-200' 
@@ -244,10 +244,10 @@ export function StudentDashboard({ user }: StudentDashboardProps) {
                 </span>
               </div>
 
-              <div className="pt-2 border-t border-slate-100 mt-2">
+              <div className="pt-2 border-t border-border-secondary mt-2">
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-xs font-medium text-slate-500 uppercase tracking-wider">Profile Completion</span>
-                  <span className="text-xs font-bold text-slate-700">85%</span>
+                  <span className="text-xs font-medium text-fg-muted uppercase tracking-wider">Profile Completion</span>
+                  <span className="text-xs font-bold text-fg-secondary">85%</span>
                 </div>
                 <div className="h-1.5 w-full rounded-full bg-slate-100">
                   <div className="h-1.5 rounded-full bg-green-500" style={{ width: '85%' }} />
@@ -257,37 +257,37 @@ export function StudentDashboard({ user }: StudentDashboardProps) {
           </div>
 
           {/* Upcoming Sessions */}
-          <div className="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
+          <div className="bg-card rounded-xl border border-border p-6 shadow-sm">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-lg font-bold text-slate-900 flex items-center gap-2">
+              <h2 className="text-lg font-bold font-display text-fg flex items-center gap-2">
                 <Calendar className="h-5 w-5 text-primary-600" />
                 Upcoming
               </h2>
             </div>
             
             <div className="space-y-4">
-              <div className="p-3 rounded-lg border border-slate-200 bg-white hover:border-primary-200 transition-colors cursor-pointer group">
+              <div className="p-3 rounded-lg border border-border bg-card hover:border-primary-200 transition-colors cursor-pointer group">
                 <div className="flex items-start gap-3">
                   <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-blue-50 text-blue-600 flex flex-col items-center justify-center border border-blue-100">
                     <span className="text-xs font-bold uppercase">Feb</span>
                     <span className="text-lg font-bold leading-none">12</span>
                   </div>
                   <div>
-                    <h4 className="text-sm font-semibold text-slate-900 group-hover:text-primary-700 transition-colors">Intro to Network Security</h4>
-                    <p className="text-xs text-slate-500 mt-1">Live Webinar • 2:00 PM UTC</p>
+                    <h4 className="text-sm font-semibold text-fg group-hover:text-primary-700 transition-colors">Intro to Network Security</h4>
+                    <p className="text-xs text-fg-muted mt-1">Live Webinar • 2:00 PM UTC</p>
                   </div>
                 </div>
               </div>
 
-              <div className="p-3 rounded-lg border border-slate-200 bg-white hover:border-primary-200 transition-colors cursor-pointer group">
+              <div className="p-3 rounded-lg border border-border bg-card hover:border-primary-200 transition-colors cursor-pointer group">
                 <div className="flex items-start gap-3">
                   <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-purple-50 text-purple-600 flex flex-col items-center justify-center border border-purple-100">
                     <span className="text-xs font-bold uppercase">Feb</span>
                     <span className="text-lg font-bold leading-none">15</span>
                   </div>
                   <div>
-                    <h4 className="text-sm font-semibold text-slate-900 group-hover:text-primary-700 transition-colors">Weekly Mentorship Call</h4>
-                    <p className="text-xs text-slate-500 mt-1">Group Session • 4:00 PM UTC</p>
+                    <h4 className="text-sm font-semibold text-fg group-hover:text-primary-700 transition-colors">Weekly Mentorship Call</h4>
+                    <p className="text-xs text-fg-muted mt-1">Group Session • 4:00 PM UTC</p>
                   </div>
                 </div>
               </div>

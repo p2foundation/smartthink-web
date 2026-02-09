@@ -3,20 +3,21 @@
 import Link from 'next/link';
 import { useAuthStore } from '@/stores/auth-store';
 import { RegionSelector } from '@/components/region-selector';
+import { ThemeToggle } from '@/components/theme-toggle';
 import { Button } from '@/components/ui/button';
 
 export function Header() {
   const { isAuthenticated, user, logout } = useAuthStore();
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-slate-100 bg-white/80 backdrop-blur-lg">
+    <header className="sticky top-0 z-50 w-full border-b border-border bg-bg/80 backdrop-blur-lg">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
           <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary-600">
-            <span className="text-lg font-bold text-white">S</span>
+            <span className="text-lg font-bold text-white font-display">S</span>
           </div>
-          <span className="text-xl font-bold text-slate-900">
+          <span className="text-xl font-bold font-display text-fg">
             Smart<span className="text-primary-600">Think</span>
           </span>
         </Link>
@@ -50,7 +51,10 @@ export function Header() {
         </nav>
 
         {/* Right side: Region + Auth */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-4">
+          <div className="hidden sm:block">
+            <ThemeToggle />
+          </div>
           <RegionSelector />
 
           {isAuthenticated ? (
@@ -60,14 +64,14 @@ export function Header() {
                   Dashboard
                 </Button>
               </Link>
-              <div className="flex items-center gap-2">
+              <div className="pt-4 border-t border-border">
                 <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary-100 text-sm font-semibold text-primary-700">
                   {user?.firstName?.[0]}
                   {user?.lastName?.[0]}
                 </div>
                 <button
                   onClick={logout}
-                  className="text-sm text-slate-500 hover:text-slate-700"
+                  className="border-t border-border bg-bg lg:hidden text-slate-700"
                 >
                   Logout
                 </button>

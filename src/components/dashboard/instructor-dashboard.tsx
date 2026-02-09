@@ -88,9 +88,9 @@ export function InstructorDashboard({ user }: InstructorDashboardProps) {
       <div className="grid gap-8 lg:grid-cols-3">
         {/* Main Content - My Courses */}
         <div className="lg:col-span-2 space-y-8">
-          <section className="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
+          <section className="bg-card rounded-xl border border-border p-6 shadow-sm">
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-lg font-bold text-slate-900 flex items-center gap-2">
+              <h2 className="text-lg font-bold font-display text-fg flex items-center gap-2">
                 <BookOpen className="h-5 w-5 text-primary-600" />
                 My Courses
               </h2>
@@ -110,16 +110,16 @@ export function InstructorDashboard({ user }: InstructorDashboardProps) {
             {coursesLoading ? (
               <div className="space-y-4">
                 {Array.from({ length: 3 }).map((_, idx) => (
-                  <div key={idx} className="h-20 animate-pulse rounded-xl bg-slate-50 border border-slate-100" />
+                  <div key={idx} className="h-20 animate-pulse rounded-xl bg-bg-secondary border border-border-secondary" />
                 ))}
               </div>
             ) : myCourses.length === 0 ? (
-              <div className="rounded-xl border border-dashed border-slate-200 p-8 text-center bg-slate-50">
+              <div className="rounded-xl border border-dashed border-border p-8 text-center bg-bg-secondary">
                 <div className="mx-auto w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center mb-3">
-                  <BookOpen className="h-6 w-6 text-slate-400" />
+                  <BookOpen className="h-6 w-6 text-fg-muted" />
                 </div>
-                <h3 className="text-sm font-semibold text-slate-900">No courses yet</h3>
-                <p className="mt-1 text-sm text-slate-500 max-w-xs mx-auto mb-4">
+                <h3 className="text-sm font-semibold text-fg">No courses yet</h3>
+                <p className="mt-1 text-sm text-fg-muted max-w-xs mx-auto mb-4">
                   Start sharing your knowledge by creating your first course.
                 </p>
                 <Button asChild>
@@ -129,24 +129,24 @@ export function InstructorDashboard({ user }: InstructorDashboardProps) {
             ) : (
               <div className="space-y-4">
                 {myCourses.map((course) => (
-                  <div key={course.id} className="group rounded-xl border border-slate-200 p-4 transition-all hover:border-primary-200 hover:shadow-sm">
+                  <div key={course.id} className="group rounded-xl border border-border p-4 transition-all hover:border-primary-200 hover:shadow-sm">
                     <div className="flex items-start justify-between gap-4">
                       <div className="min-w-0 flex-1">
                         <div className="flex items-center gap-2 mb-1">
                           <span className={`inline-flex items-center px-2 py-0.5 rounded text-xs font-medium ${
                             course.status === 'PUBLISHED' ? 'bg-green-100 text-green-700' :
-                            course.status === 'DRAFT' ? 'bg-slate-100 text-slate-700' :
+                            course.status === 'DRAFT' ? 'bg-slate-100 text-fg-secondary' :
                             'bg-amber-100 text-amber-700'
                           }`}>
                             {course.status}
                           </span>
-                          <span className="text-xs text-slate-400">•</span>
-                          <span className="text-xs text-slate-500">{course.level}</span>
+                          <span className="text-xs text-fg-muted">•</span>
+                          <span className="text-xs text-fg-muted">{course.level}</span>
                         </div>
-                        <h3 className="font-semibold text-slate-900 truncate group-hover:text-primary-700 transition-colors">
+                        <h3 className="font-semibold text-fg truncate group-hover:text-primary-700 transition-colors">
                           {course.title}
                         </h3>
-                        <div className="mt-2 flex items-center gap-4 text-sm text-slate-600">
+                        <div className="mt-2 flex items-center gap-4 text-sm text-fg-secondary">
                           <span className="flex items-center gap-1">
                             <Users className="h-3 w-3" />
                             {course.enrollmentCount} students
@@ -175,15 +175,15 @@ export function InstructorDashboard({ user }: InstructorDashboardProps) {
           </section>
 
           {/* Performance Chart Placeholder */}
-          <section className="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
+          <section className="bg-card rounded-xl border border-border p-6 shadow-sm">
              <div className="flex items-center justify-between mb-6">
-              <h2 className="text-lg font-bold text-slate-900 flex items-center gap-2">
+              <h2 className="text-lg font-bold font-display text-fg flex items-center gap-2">
                 <TrendingUp className="h-5 w-5 text-primary-600" />
                 Performance
               </h2>
             </div>
-            <div className="h-64 flex items-center justify-center bg-slate-50 rounded-lg border border-slate-100 border-dashed">
-              <p className="text-slate-400 text-sm">Revenue & Enrollment Chart would go here</p>
+            <div className="h-64 flex items-center justify-center bg-bg-secondary rounded-lg border border-border-secondary border-dashed">
+              <p className="text-fg-muted text-sm">Revenue & Enrollment Chart would go here</p>
             </div>
           </section>
         </div>
@@ -191,8 +191,8 @@ export function InstructorDashboard({ user }: InstructorDashboardProps) {
         {/* Sidebar */}
         <div className="space-y-6">
            {/* Recent Activity */}
-          <div className="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
-            <h2 className="text-lg font-bold text-slate-900 mb-4">Recent Activity</h2>
+          <div className="bg-card rounded-xl border border-border p-6 shadow-sm">
+            <h2 className="text-lg font-bold font-display text-fg mb-4">Recent Activity</h2>
             <div className="space-y-4">
               {[
                 { text: 'New student enrolled in "Intro to Cybersecurity"', time: '2 mins ago', icon: Users, color: 'text-blue-600 bg-blue-50' },
@@ -204,8 +204,8 @@ export function InstructorDashboard({ user }: InstructorDashboardProps) {
                     <activity.icon className="h-4 w-4" />
                   </div>
                   <div>
-                    <p className="text-sm text-slate-700 leading-snug">{activity.text}</p>
-                    <p className="text-xs text-slate-500 mt-1">{activity.time}</p>
+                    <p className="text-sm text-fg-secondary leading-snug">{activity.text}</p>
+                    <p className="text-xs text-fg-muted mt-1">{activity.time}</p>
                   </div>
                 </div>
               ))}
@@ -213,8 +213,8 @@ export function InstructorDashboard({ user }: InstructorDashboardProps) {
           </div>
 
           {/* Action Items */}
-          <div className="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
-            <h2 className="text-lg font-bold text-slate-900 mb-4">Action Items</h2>
+          <div className="bg-card rounded-xl border border-border p-6 shadow-sm">
+            <h2 className="text-lg font-bold font-display text-fg mb-4">Action Items</h2>
              <div className="space-y-3">
                <div className="p-3 bg-amber-50 border border-amber-100 rounded-lg">
                  <p className="text-sm font-medium text-amber-800">Pending Review</p>

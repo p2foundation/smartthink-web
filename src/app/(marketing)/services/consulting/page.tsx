@@ -80,7 +80,7 @@ export default function ConsultingPage() {
       <section className="py-20 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-slate-900">Strategic Security Services</h2>
+            <h2 className="text-3xl font-bold font-display text-slate-900">Strategic Security Services</h2>
             <p className="mt-4 text-lg text-slate-600">End-to-end solutions for your security posture.</p>
           </div>
 
@@ -147,7 +147,7 @@ export default function ConsultingPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-2 items-center">
             <div>
-              <h2 className="text-3xl font-bold text-slate-900 mb-6">Why Choose SmartThink Consulting?</h2>
+              <h2 className="text-3xl font-bold font-display text-slate-900 mb-6">Why Choose SmartThink Consulting?</h2>
               <div className="space-y-6">
                 {[
                   { title: "Regional Expertise", desc: "Deep understanding of African and Global compliance landscapes." },

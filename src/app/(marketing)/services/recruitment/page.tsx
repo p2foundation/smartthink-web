@@ -94,7 +94,7 @@ export default function RecruitmentPage() {
       <section className="py-20 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-slate-900">Why Hire Through SmartThink?</h2>
+            <h2 className="text-3xl font-bold font-display text-slate-900">Why Hire Through SmartThink?</h2>
             <p className="mt-4 text-lg text-slate-600">We don't just find resumes; we verify skills.</p>
           </div>
 
@@ -160,7 +160,7 @@ export default function RecruitmentPage() {
       <section className="py-20 bg-slate-50 border-t border-slate-200">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="lg:text-center mb-16">
-            <h2 className="text-3xl font-bold text-slate-900">Our Vetting Process</h2>
+            <h2 className="text-3xl font-bold font-display text-slate-900">Our Vetting Process</h2>
             <p className="mt-4 text-lg text-slate-600">How we ensure you get the best talent.</p>
           </div>
           
@@ -194,7 +194,7 @@ export default function RecruitmentPage() {
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/20 rounded-full blur-[100px]" />
             
             <div className="relative z-10 max-w-3xl mx-auto">
-              <h2 className="text-3xl font-bold text-white mb-6">Ready to Build Your Security Team?</h2>
+              <h2 className="text-3xl font-bold font-display text-white mb-6">Ready to Build Your Security Team?</h2>
               <p className="text-lg text-slate-400 mb-10">
                 Stop sifting through unqualified resumes. Let us connect you with the top 1% of cybersecurity talent.
               </p>

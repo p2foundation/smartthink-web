@@ -79,7 +79,7 @@ export default function TrainingPage() {
       <section className="py-20 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-slate-900">Why SmartThink Training?</h2>
+            <h2 className="text-3xl font-bold font-display text-slate-900">Why SmartThink Training?</h2>
             <p className="mt-4 text-lg text-slate-600">A modern approach to cybersecurity education.</p>
           </div>
 
@@ -134,7 +134,7 @@ export default function TrainingPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-2">
             <div>
-              <h2 className="text-3xl font-bold text-slate-900 mb-6">Structured Learning Paths</h2>
+              <h2 className="text-3xl font-bold font-display text-slate-900 mb-6">Structured Learning Paths</h2>
               <div className="space-y-6">
                 {[
                   "Foundations of Cybersecurity",

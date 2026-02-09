@@ -42,17 +42,17 @@ export function LandingHero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="mb-8 inline-flex flex-wrap items-center justify-center gap-3 text-sm text-slate-400"
+            className="mb-8 inline-flex flex-wrap items-center justify-center gap-3 text-sm text-hero-muted"
           >
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-600/50 bg-slate-800/50 px-4 py-1.5 backdrop-blur-sm">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-border-secondary bg-bg-secondary/50 px-4 py-1.5 backdrop-blur-sm">
               <span className="h-1.5 w-1.5 rounded-full bg-accent-400" />
               Africa-anchored · Global reach
             </span>
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-600/50 bg-slate-800/50 px-4 py-1.5 backdrop-blur-sm">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-border-secondary bg-bg-secondary/50 px-4 py-1.5 backdrop-blur-sm">
               <Globe className="h-3.5 w-3.5" />
               GH · NG · US · EU
             </span>
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-600/50 bg-slate-800/50 px-4 py-1.5 backdrop-blur-sm">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-border-secondary bg-bg-secondary/50 px-4 py-1.5 backdrop-blur-sm">
               <Smartphone className="h-3.5 w-3.5" />
               Mobile-first · WhatsApp
             </span>
@@ -93,7 +93,7 @@ export function LandingHero() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.4, ease: 'easeInOut' }}
-                className="text-lg text-slate-400 sm:text-xl md:max-w-2xl md:mx-auto"
+                className="text-lg text-hero-muted sm:text-xl md:max-w-2xl md:mx-auto"
               >
                 {services[currentIndex].description}
               </motion.p>
@@ -109,7 +109,7 @@ export function LandingHero() {
                 className={`h-1.5 rounded-full transition-all duration-300 ${
                   index === currentIndex
                     ? 'w-6 bg-accent-400'
-                    : 'w-1.5 bg-slate-600 hover:bg-slate-500'
+                    : 'w-1.5 bg-fg-muted hover:bg-fg-secondary'
                 }`}
                 aria-label={`Show ${services[index].text}`}
               />
@@ -132,7 +132,7 @@ export function LandingHero() {
             </Link>
             <Link
               href="/courses"
-              className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-xl border border-slate-500 bg-slate-800/50 px-8 py-3.5 text-base font-semibold text-white backdrop-blur-sm transition hover:border-slate-400 hover:bg-slate-700/50 sm:text-lg"
+              className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-xl border border-border bg-bg-secondary/50 px-8 py-3.5 text-base font-semibold text-fg backdrop-blur-sm transition hover:border-border-secondary hover:bg-bg-tertiary/50 sm:text-lg"
             >
               Browse courses
             </Link>
@@ -155,7 +155,7 @@ export function LandingHero() {
                 <div className="font-display text-2xl font-bold text-white sm:text-3xl">
                   {value}
                 </div>
-                <div className="mt-0.5 text-sm text-slate-500">{label}</div>
+                <div className="mt-0.5 text-sm text-fg-muted">{label}</div>
               </div>
             ))}
           </motion.div>
@@ -163,7 +163,7 @@ export function LandingHero() {
       </div>
 
       {/* Bottom fade into light section */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-slate-50 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-bg to-transparent" />
     </section>
   );
 }

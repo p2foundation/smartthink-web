@@ -42,9 +42,30 @@
   --color-surface-dark: #0f172a;
   --color-muted: #64748b;
 
-  /* Typography - --font-display is set by next/font on html */
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  /* Semantic theme tokens (resolved via CSS vars) */
+  --color-bg: var(--st-bg);
+  --color-bg-secondary: var(--st-bg-secondary);
+  --color-bg-tertiary: var(--st-bg-tertiary);
+  --color-fg: var(--st-fg);
+  --color-fg-secondary: var(--st-fg-secondary);
+  --color-fg-muted: var(--st-fg-muted);
+  --color-border: var(--st-border);
+  --color-border-secondary: var(--st-border-secondary);
+  --color-card: var(--st-card);
+  --color-card-hover: var(--st-card-hover);
+  --color-input: var(--st-input);
+  --color-ring: var(--st-ring);
+  --color-hero-bg: var(--st-hero-bg);
+  --color-hero-fg: var(--st-hero-fg);
+  --color-hero-muted: var(--st-hero-muted);
+  --color-footer-bg: var(--st-footer-bg);
+  --color-footer-fg: var(--st-footer-fg);
+  --color-footer-border: var(--st-footer-border);
+
+  /* Typography */
+  --font-sans: var(--font-geist-sans), 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-geist-mono), 'JetBrains Mono', 'Fira Code', monospace;
+  --font-display: var(--font-plus-jakarta), 'Inter', system-ui, -apple-system, sans-serif;
 
   /* Radius */
   --radius-sm: 0.375rem;
@@ -53,10 +74,59 @@
   --radius-xl: 1rem;
 }
 
+/* Light Theme (default) */
+:root, html.light {
+  --st-bg: #ffffff;
+  --st-bg-secondary: #f8fafc;
+  --st-bg-tertiary: #f1f5f9;
+  --st-fg: #0f172a;
+  --st-fg-secondary: #334155;
+  --st-fg-muted: #64748b;
+  --st-border: #e2e8f0;
+  --st-border-secondary: #cbd5e1;
+  --st-card: #ffffff;
+  --st-card-hover: #f8fafc;
+  --st-input: #ffffff;
+  --st-ring: #2563eb;
+  --st-hero-bg: #0f172a;
+  --st-hero-fg: #f1f5f9;
+  --st-hero-muted: #94a3b8;
+  --st-footer-bg: #0f172a;
+  --st-footer-fg: #cbd5e1;
+  --st-footer-border: #1e293b;
+}
+
+/* Dark Theme */
+html.dark {
+  --st-bg: #0b1120;
+  --st-bg-secondary: #111827;
+  --st-bg-tertiary: #1e293b;
+  --st-fg: #f1f5f9;
+  --st-fg-secondary: #cbd5e1;
+  --st-fg-muted: #94a3b8;
+  --st-border: #1e293b;
+  --st-border-secondary: #334155;
+  --st-card: #111827;
+  --st-card-hover: #1e293b;
+  --st-input: #1e293b;
+  --st-ring: #3b82f6;
+  --st-hero-bg: #0b1120;
+  --st-hero-fg: #f1f5f9;
+  --st-hero-muted: #94a3b8;
+  --st-footer-bg: #0b1120;
+  --st-footer-fg: #cbd5e1;
+  --st-footer-border: #1e293b;
+}
+
+html.dark body {
+  background-color: var(--st-bg);
+  color: var(--st-fg);
+}
+
 /* Display-style headings: same family, heavier and tighter */
 .font-display {
-  font-family: var(--font-sans);
-  font-weight: 800;
+  font-family: var(--font-display);
+  font-weight: 700;
   letter-spacing: -0.025em;
 }
 
@@ -65,10 +135,11 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* Prevent horizontal scroll on mobile */
   overflow-x: hidden;
-  /* Enable smooth scrolling */
   scroll-behavior: smooth;
+  background-color: var(--st-bg);
+  color: var(--st-fg);
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 /* Mobile viewport optimizations */
